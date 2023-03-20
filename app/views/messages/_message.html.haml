@@ -1,0 +1,10 @@
+%div{id: dom_id(message)}
+  %p.my-5
+    %strong.block.font-medium.mb-1 Content:
+    = message.content
+  - if action_name != "show"
+    = link_to "Show this message", message, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+    = link_to 'Edit this message', edit_message_path(message), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium"
+    %hr.mt-6/
+
+= turbo_stream_from message
